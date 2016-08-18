@@ -1,0 +1,29 @@
+
+
+<launch>
+  <node pkg="sacar" type="joyToArduinoRocketLeague" name="joyToArduinoRocketLeague">
+    <!-- <param name="serial" value=""/> -->
+    <!-- If the above parameters aren't unique, choose the first match: -->
+    <!--<param name="index" value="0"/> -->
+
+    <!-- <param name="fps" value="30"/> -->
+  </node>
+
+  <node pkg="sacar" type="encoderToOdom" name="encoderToOdom" />
+
+  <node pkg="rosserial_python" type="serial_node.py" name="serial_node">
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="57600"/>
+  </node>
+
+  <node pkg="myahrs_driver" type="myahrs_driver" name="myahrs_driver">
+    <param name="port" value="/dev/ttyACM1"/>
+    <param name="parent_frame_id_" value="imu_link" />
+    <param name="frame_id" value="base_link" /> 
+  </node>
+
+
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="1 0 0 0 0 0 1 base_link laser 100" />
+  <!-- first three args are x,y,z, should be changed to reflect measurements, others should be zero if laser is mounted straight -->
+</launch>
+
