@@ -1,0 +1,6 @@
+<launch>
+  <!-- This will launch the gmapping node with the specified parameters -->
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" args="scan:=scan">
+    <param name="temporalUpdate" value="0.5"/> -->
+  </node>
+</launch>
