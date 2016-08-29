@@ -1,6 +1,6 @@
 # Semi-Autonomous Car (SACAR) Project
 
-The SACAR Project ... 
+The SACAR Project was designed to have semi-autonomous control of a small-scale RC car using ROS 
 
 # Repo Folders
 
